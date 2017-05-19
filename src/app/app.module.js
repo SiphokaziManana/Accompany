@@ -7,7 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
+var home_component_1 = require("./home/home.component");
+var navbar_component_1 = require("./navbar/navbar.component");
+var about_component_1 = require("./about/about.component");
+var pageNotFound_component_1 = require("./error/pageNotFound.component");
+var appRoutes = [
+    { path: '',
+        redirectTo: '/',
+        pathMatch: 'full'
+    },
+    {
+        path: 'about',
+        component: about_component_1.AboutComponent,
+        data: { title: 'About Accompany' }
+    },
+    { path: '**', component: home_component_1.HomeComponent }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -15,8 +32,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes)],
+        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, navbar_component_1.NavbarComponent, about_component_1.AboutComponent, pageNotFound_component_1.PageNotFoundComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
