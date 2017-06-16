@@ -6,18 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Created by siphokazi on 2017/05/19.
+ */
+/**
+ * Created by siphokazi on 2017/05/17.
+ */
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular';
+var ServicesComponent = (function () {
+    function ServicesComponent() {
     }
-    return AppComponent;
+    return ServicesComponent;
 }());
-AppComponent = __decorate([
+ServicesComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<nav-bar></nav-bar>\n            <router-outlet></router-outlet>",
+        selector: 'services',
+        templateUrl: './services.component.html',
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], ServicesComponent);
+exports.ServicesComponent = ServicesComponent;
+//# sourceMappingURL=services.component.js.map
