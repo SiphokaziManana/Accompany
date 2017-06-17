@@ -12,11 +12,11 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ContactService{
 
-    http :Http;
-    //constructor(private http: Http) {
-    constructor() {
+
+    constructor(private http: Http) {
+    //constructor() {
         //declare imported modules
-        //this.http = http;
+        this.http = http;
     }
 
     private handleError(error: any): Promise<any> {
@@ -31,7 +31,7 @@ export class ContactService{
         var jsonString =  JSON.stringify({
             clientName:fullName,clientEmail:email,clientQuery:query,contactClient:contactAgain});
         console.log("am here");
-        return this.http.post('localhost:8080/sendMail/send', jsonString, {headers: this.headers})
+        return this.http.post('/api/sendMail', jsonString, {headers: this.headers})
             .toPromise()
             .then(res => res.json().data)
             .catch(this.handleError);

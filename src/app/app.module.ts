@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 //import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import { AppComponent }  from './app.component';
@@ -49,10 +50,10 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule ],
+    imports:      [ BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule ],
     declarations: [ AppComponent, HomeComponent, NavbarComponent, AboutComponent,BlogComponent,
                   ServicesComponent,ProductsComponent,ContactComponent, PageNotFoundComponent],
-    providers:    [ ContactService ],
+/*    providers:    [ ContactService ],*/
     bootstrap:    [ AppComponent ]
 })
 

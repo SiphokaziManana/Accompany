@@ -17,11 +17,12 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
 //import { LocalStorageService } from 'ng2-webstorage';
 var ContactService = (function () {
-    //constructor(private http: Http) {
-    function ContactService() {
+    function ContactService(http) {
+        this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        //constructor() {
         //declare imported modules
-        //this.http = http;
+        this.http = http;
     }
     ContactService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
@@ -32,7 +33,7 @@ var ContactService = (function () {
             clientName: fullName, clientEmail: email, clientQuery: query, contactClient: contactAgain
         });
         console.log("am here");
-        return this.http.post('localhost:8080/sendMail/send', jsonString, { headers: this.headers })
+        return this.http.post('/api/sendMail', jsonString, { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
@@ -41,7 +42,7 @@ var ContactService = (function () {
 }());
 ContactService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], ContactService);
 exports.ContactService = ContactService;
 //# sourceMappingURL=contact.service.js.map

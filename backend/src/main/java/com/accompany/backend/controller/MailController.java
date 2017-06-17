@@ -14,13 +14,13 @@ import com.accompany.backend.domain.*;
 import com.accompany.backend.service.MailService;
 
 @RestController
-@RequestMapping("sendMail")
+@RequestMapping("/api")
 public class MailController{
 
     @Autowired
     MailService mailService;
 
-    @RequestMapping( value = "/send", method = RequestMethod.POST,
+    @RequestMapping( value = "/sendMail", method = RequestMethod.POST,
                     produces = MediaType.ALL_VALUE,
                     consumes = MediaType.APPLICATION_JSON_VALUE)
 

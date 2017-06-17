@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 //import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home/home.component");
@@ -20,7 +21,6 @@ var products_component_1 = require("./products/products.component");
 var contact_component_1 = require("./contact/contact.component");
 var blog_component_1 = require("./blog/blog.component");
 var pageNotFound_component_1 = require("./error/pageNotFound.component");
-var contact_service_1 = require("./contact/contact.service");
 var appRoutes = [
     { path: '',
         redirectTo: '/',
@@ -56,10 +56,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule],
+        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes), forms_1.FormsModule, http_1.HttpModule],
         declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, navbar_component_1.NavbarComponent, about_component_1.AboutComponent, blog_component_1.BlogComponent,
             services_component_1.ServicesComponent, products_component_1.ProductsComponent, contact_component_1.ContactComponent, pageNotFound_component_1.PageNotFoundComponent],
-        providers: [contact_service_1.ContactService],
+        /*    providers:    [ ContactService ],*/
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

@@ -8,17 +8,22 @@ import { ContactService } from './contact.service';
 @Component({
     selector: 'contact',
     templateUrl:'./contact.component.html',
+    providers: [ContactService]
 })
 export class ContactComponent  {
     
     model = new ClientQuery(1,"sfiso shabangu","sifisos@gmail.com", false, "hey there sipho");
     //model =  new ClientQuery();
     submitted = false;
-    service = new ContactService();
+    //service = new ContactService();
 
     /*constructor(http_: HttpModule){
         this.http = http_;
     }*/
+
+    constructor( private service: ContactService){
+
+    }
 
     onSubmit(){
         this.submitted = true;
