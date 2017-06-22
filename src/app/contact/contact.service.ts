@@ -12,10 +12,7 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class ContactService{
 
-
     constructor(private http: Http) {
-    //constructor() {
-        //declare imported modules
         this.http = http;
     }
 
@@ -27,11 +24,10 @@ export class ContactService{
     private headers = new Headers({'Content-Type': 'application/json'});
 
     sendMail(fullName:string, email: string, query:string, contactAgain:boolean):Promise<any>{
-
         var jsonString =  JSON.stringify({
-            clientName:fullName,clientEmail:email,clientQuery:query,contactClient:contactAgain});
-        console.log("am here");
-        return this.http.post('/api/sendMail', jsonString, {headers: this.headers})
+            clientName:fullName,clientEmail:email,clientQuery:query,contactClient:contactAgain});        
+        
+        return this.http.post('http://localhost:8080/api/client/addClient', jsonString, {headers: this.headers})
             .toPromise()
             .then(res => res.json().data)
             .catch(this.handleError);

@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by siphokazi on 2017/05/19.
  */
 var core_1 = require("@angular/core");
-var client_query_component_1 = require("./client-query.component");
+var client_1 = require("./client");
 var contact_service_1 = require("./contact.service");
 var ContactComponent = (function () {
     //service = new ContactService();
@@ -22,23 +22,23 @@ var ContactComponent = (function () {
     }*/
     function ContactComponent(service) {
         this.service = service;
-        this.model = new client_query_component_1.ClientQuery(1, "sfiso shabangu", "sifisos@gmail.com", false, "hey there sipho");
-        //model =  new ClientQuery();
+        //model = new Client(1,"sfiso shabangu","sifisos@gmail.com", false, "hey there sipho");
+        this.model = new client_1.Client();
+        //model : Client;
         this.submitted = false;
     }
     ContactComponent.prototype.onSubmit = function () {
         this.submitted = true;
         console.log("i have submitted");
         console.log(JSON.stringify(this.model));
+        console.log("*******************");
         //http calls to backend application
         this.service.sendMail(this.model.client_name, this.model.client_email, this.model.client_query, this.model.can_contact);
         console.log("sent to backend, just check");
     };
     Object.defineProperty(ContactComponent.prototype, "diagnostic", {
-        //TODO: Remove this when done
-        get: function () {
-            return JSON.stringify(this.model);
-        },
+        // TODO: Remove this when we're done
+        get: function () { return JSON.stringify(this.model); },
         enumerable: true,
         configurable: true
     });

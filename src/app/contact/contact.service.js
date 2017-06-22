@@ -20,8 +20,6 @@ var ContactService = (function () {
     function ContactService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        //constructor() {
-        //declare imported modules
         this.http = http;
     }
     ContactService.prototype.handleError = function (error) {
@@ -32,8 +30,7 @@ var ContactService = (function () {
         var jsonString = JSON.stringify({
             clientName: fullName, clientEmail: email, clientQuery: query, contactClient: contactAgain
         });
-        console.log("am here");
-        return this.http.post('/api/sendMail', jsonString, { headers: this.headers })
+        return this.http.post('http://localhost:8080/api/client/addClient', jsonString, { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);

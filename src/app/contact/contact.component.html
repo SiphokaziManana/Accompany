@@ -1,53 +1,3 @@
-<!--
-
-<div class="container">
-    <h1>Contact Us</h1>
-    <form  (ngSubmit)="onSubmit()" #clientForm="ngForm">
-        <div class="form-group">
-            <label for="client_name">Full Name: </label>
-            <input type="text" class="form-control" id="client_name" required
-                   [(ngModel)] = "model.client_name" name="client_name">
-            TODO: remove this: {{ model.client_name }}
-        </div>
-        <div class="form-group">
-            <label for="client_email">Email: </label>
-            <input type="email" class="form-control" id="client_email" required
-             [(ngModel)]="model.client_email" name="client_email">
-        </div>
-        <div class="form-group">
-            <label >Please enter your query here: </label>
-            <textarea class="form-control custom-control" rows="4" cols="50" required
-            [(ngModel)]="model.client_query" name="client_query">
-            </textarea>
-        </div>
-        <div class="form-group">
-            <label >Can we contact you further:  </label> <br>
-            <input type="radio"  name="can_contact" value="Yes" required [(ngModel)]="model.can_contact"> Yes, please. <br>
-            <input type="radio" name="can_contact" value="No" required [(ngModel)]="model.can_contact"> No, thanks. <br>
-        </div>
-        <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
-    </form>
-</div>
-<div  [hidden]="!submitted" class="container">
-    <h2>You submitted the following:</h2>
-    <div class="row">
-        <div class="col-xs-3">Name</div>
-        <div class="col-xs-9  pull-left">{{ model.client_name }}</div>
-    </div>
-    <div class="row">
-        <div class="col-xs-3">Email</div>
-        <div class="col-xs-9 pull-left">{{ model.client_email }}</div>
-    </div>
-    <div class="row">
-        <div class="col-xs-3">Query</div>
-        <div class="col-xs-9 pull-left">{{ model.client_query }}</div>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-</div>
--->
-
-
 <div class="container">
     <div class="row">
         <div class="jumbotron">
@@ -59,28 +9,27 @@
                 <div class="container">
 
                     <form  (ngSubmit)="onSubmit()" #clientForm="ngForm">
-                    <!--<form>-->
+                    <!--<form> -->
                         <div class="form-group">
                             <label for="client_name">Full Name: </label>
                             <input type="text" class="form-control" id="client_name" required
-                                   (ngModel) = "model.client_name" name="client_name">
-
+                                   [(ngModel)] = "model.client_name" name="client_name">                            
                         </div>
                         <div class="form-group">
                             <label for="client_email">Email: </label>
                             <input type="email" class="form-control" id="client_email" required
-                                   (ngModel)="model.client_email" name="client_email">
+                                   [(ngModel)]="model.client_email" name="client_email">
                         </div>
                         <div class="form-group">
                             <label >Please enter your query here: </label>
                             <textarea class="form-control custom-control" rows="4" cols="50" required
-                                      (ngModel)="model.client_query" name="client_query">
-            </textarea>
+                                      [(ngModel)]="model.client_query" name="client_query">
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <label >Can we contact you further:  </label> <br>
-                            <input type="radio"  name="can_contact" value="Yes" required (ngModel)="model.can_contact"> Yes, please. <br>
-                            <input type="radio" name="can_contact" value="No" required (ngModel)="model.can_contact"> No, thanks. <br>
+                            <input type="radio"  name="can_contact" value=true required [(ngModel)]="model.can_contact"> Yes, please. <br>
+                            <input type="radio" name="can_contact" value=false required [(ngModel)]="model.can_contact"> No, thanks. <br>
                         </div>
                         <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
                     </form>
@@ -89,5 +38,9 @@
         </div>
     </div>
 </div>
+
+
+        
+
 
 
