@@ -13,7 +13,7 @@ import javax.inject.Inject;
 @RequestMapping("/api/client")
 public class ClientController {
 
-   // @Autowired
+    // @Autowired
     @Inject
     ClientService clientService;
 

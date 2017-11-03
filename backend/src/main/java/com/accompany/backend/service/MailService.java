@@ -16,33 +16,31 @@ public class MailService {
 
     public void sendMail(String messageBody, String emailTo)
     {
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        Properties props = new Properties(); //a
+        props.put("mail.smtp.auth", "true");//a
+        props.put("mail.smtp.starttls.enable", "true");//a
+        props.put("mail.smtp.host", "smtp.gmail.com");//a
+        props.put("mail.smtp.port", "587");//a
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication("groupquadcore@gmail.com", "quadcore123");
                     }
-                });
+                });//a
 
-        try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("siphokazi.manana@gmail.com"));
+        try {//a //b
+            Message message = new MimeMessage(session);//a
+            message.setFrom(new InternetAddress("groupquadcore@gmail.com"));//a
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(emailTo));
-            message.setSubject("Welcome to Accompany");
-            message.setText(messageBody);
+                    InternetAddress.parse("siphokazi.manana@gmail.com"));//a
+            message.setSubject("Welcome to Accompany");//a
+            message.setText(messageBody);//a
 
-            Transport.send(message);
-
-            System.out.println("Registration Email Sent");
+            Transport.send(message);//a
 
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e); //b
         }
     }
 }

@@ -37,7 +37,6 @@ export class ContactComponent  {
         //http calls to backend application
         this.service.sendMail(this.model.client_name, this.model.client_email, this.model.client_query,
             this.model.can_contact);
-
         console.log("sent to backend, just check");
     }
 

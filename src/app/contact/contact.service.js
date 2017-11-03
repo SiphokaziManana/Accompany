@@ -30,7 +30,7 @@ var ContactService = (function () {
         var jsonString = JSON.stringify({
             clientName: fullName, clientEmail: email, clientQuery: query, contactClient: contactAgain
         });
-        return this.http.post('http://localhost:8080/api/client/addClient', jsonString, { headers: this.headers })
+        return this.http.post('http://localhost:8761/api/client/addClient', jsonString, { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
